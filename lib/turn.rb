@@ -12,7 +12,7 @@ end
 
 def valid_move(board, index)
   if index.between(0,8)
-    if !position_taken?(board, index)
+    if !position_taken(board, index)
       true
     end
   end
@@ -21,7 +21,7 @@ def valid_move(board, index)
     puts "Please enter 1-9:"
     input = gets.strip
     index = input_to_index(input)
-    if valid_move?(board, index)
+    if valid_move(board, index)
       move(board, index)
       display_board(board)
     else
@@ -29,7 +29,7 @@ def valid_move(board, index)
     end
   end
 
-  def position_taken?(board, index)
+  def position_taken(board, index)
     board[index] != " "
   end
 
